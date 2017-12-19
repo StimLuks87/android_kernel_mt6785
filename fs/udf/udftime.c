@@ -75,7 +75,7 @@ udf_disk_stamp_to_time(struct timespec *dest, struct timestamp src)
 }
 
 void
-udf_time_to_disk_stamp(struct timestamp *dest, struct timespec ts)
+udf_time_to_disk_stamp(struct timestamp *dest, struct timespec64 ts)
 {
 	long seconds;
 	int16_t offset;
