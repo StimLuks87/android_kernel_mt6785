@@ -3551,6 +3551,7 @@ static bool binder_proc_transaction(struct binder_transaction *t,
 		binder_node_unlock(node);
 		return false;
 	}
+
 	if (!thread && !pending_async)
 		thread = binder_select_thread_ilocked(proc);
 
