@@ -22,7 +22,7 @@ make -j$(nproc --all) O=out \
 
 function zipping()
 {
-git clone --depth=1 https://github.com/kardebayan/AnyKernel3.git AnyKernel
+git clone --depth=1 https://github.com/Luks-organization/AnyKernel3 AnyKernel
 cp out/arch/arm64/boot/Image.gz AnyKernel
 cd AnyKernel
 zip -r9 Stormbreaker-salaa-${TANGGAL}.zip *
