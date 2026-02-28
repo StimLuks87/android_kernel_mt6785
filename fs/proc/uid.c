@@ -176,7 +176,7 @@ static int proc_uid_base_readdir(struct file *file, struct dir_context *ctx)
 	for (u = uid_base_stuff + (ctx->pos - 2);
 	     u < uid_base_stuff + nents; u++) {
 		if (!proc_fill_cache(file, ctx, u->name, u->len,
-				     proc_uident_instantiate, NULL, u))
+                     (instantiate_t *)proc_uident_instantiate, NULL, u))
 			break;
 		ctx->pos++;
 	}
@@ -244,7 +244,7 @@ static int proc_uid_readdir(struct file *file, struct dir_context *ctx)
 			continue;
 		len = snprintf(buf, sizeof(buf), "%u", entry->uid);
 		if (!proc_fill_cache(file, ctx, buf, len,
-				     proc_uid_instantiate, NULL, &entry->uid))
+                     (instantiate_t *)proc_uid_instantiate, NULL, &entry->uid))
 			break;
 		i++;
 		ctx->pos++;
