@@ -407,8 +407,7 @@ EXPORT_SYMBOL(met_show_pmic_info);
 
 int met_perf_event_read_local(struct perf_event *ev, u64 *value)
 {
-    u64 enabled, running;
-    return perf_event_read_local(ev, value, &enabled, &running);
+	return perf_event_read_local(ev, value);
 }
 EXPORT_SYMBOL(met_perf_event_read_local);
 
